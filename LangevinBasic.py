@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 k,m=0.000001,1.5 
 #the differential equation y''= -my + kR is very sensitive on these parameters k and m.
-#The odeint() functon may not work with some values because itthinks that there may not be convergence.
+#The odeint() functon may not work with some values because it thinks that there may not be convergence.
 
 def R(t): #R is the "random force" term
   return np.random.normal(0,1) 
