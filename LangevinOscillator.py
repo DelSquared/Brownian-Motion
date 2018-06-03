@@ -3,7 +3,7 @@ from scipy.integrate import odeint
 from matplotlib import pyplot as plt
 
 w,g=5,0
-#the differential equation z'= i(w+gR(T))z is very sensitive on these parameters k and m.
+#the differential equation z'= i(w+gR(T))z is very sensitive on these parameters w and g.
 #The odeint() functon may not work with some values because it thinks that there may not be convergence.
 #Do note that there are still some bugs in this code. It is advised to wait for a revised edition before taking a look at it.
 
