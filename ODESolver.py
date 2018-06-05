@@ -3,6 +3,11 @@ from matplotlib import pyplot as plt
 #The intention of this solver is to eliminate the use of Scipy's odeint from this project. While it is a phenomenal tool
 #its design makes it less than ideal for dealing with noisy/stochastic ODEs. 
 
+#One thing that I fear may have been done inappropriately in this was the implementation of the noise term since it was
+#being randomly generated more than once for the same spot (eg. in the second order, the estimate for the midpoint 
+#generates a different random number from the calculation of the actual value of that point). One could probably 
+#deal with this by running a noise map in order to reference the noise values as needed.
+
 k=1 #Set to 0 to disable noise for example
 
 def ODE (x,t): #example ODE
