@@ -14,7 +14,7 @@ def integrator1(f,xo,t,N): #Order 1 (Euler's method)
   x[0]=xo
   dt=t[1]-t[0]
   for i in range(t.shape[0]-1):
-    x[i+1]=x[i]+f(x[i],t,N[i])*dt
+    x[i+1]=x[i]+f(x[i],t[i],N[i])*dt
   return x
 
 def integrator2(f,xo,t,N): #Order 2 (Modified Euler/Midpoint method)
@@ -22,8 +22,8 @@ def integrator2(f,xo,t,N): #Order 2 (Modified Euler/Midpoint method)
   x[0]=xo
   dt=t[1]-t[0]
   for i in range(t.shape[0]-1):
-    k1=f(x[i], t, N[i])
-    x[i+1]=x[i]+f(x[i]+k1*dt/2, t+dt/2, N[i])*dt
+    k1=f(x[i], t[i], N[i])
+    x[i+1]=x[i]+f(x[i]+k1*dt/2, t[i]+dt/2, N[i])*dt
   return x
 
 def integrator3(f,xo,t,N): #Order 3
@@ -31,9 +31,9 @@ def integrator3(f,xo,t,N): #Order 3
   x[0]=xo
   dt=t[1]-t[0]
   for i in range(t.shape[0]-1):
-    k1=f(x[i],t, N[i])
-    k2=f(x[i]+k1*dt/2, t+dt/2, N[i])
-    x[i+1]=x[i]+f( x[i]+k2*dt/2 , t+dt/2 ,N[i])*dt
+    k1=f(x[i],t[i], N[i])
+    k2=f(x[i]+k1*dt/2, t[i]+dt/2, N[i])
+    x[i+1]=x[i]+f( x[i]+k2*dt/2 , t[i]+dt/2 ,N[i])*dt
   return x
 
 def integrator4(f,xo,t,N): #Order 4 (still requires a more exhaustive testing to be carried out)
@@ -41,10 +41,10 @@ def integrator4(f,xo,t,N): #Order 4 (still requires a more exhaustive testing to
   x[0]=xo
   dt=t[1]-t[0]
   for i in range(t.shape[0]-1):
-    k1=f(x[i],t,N[i])
-    k2=f(x[i]+k1*dt/2, t+dt/2, N[i])
-    k3=f(x[i]+k2*dt/2, t+dt/2, N[i])
-    x[i+1]=x[i]+f(x[i]+k3*dt/2, t+dt/2, N[i])*dt
+    k1=f(x[i],t[i],N[i])
+    k2=f(x[i]+k1*dt/2, t[i]+dt/2, N[i])
+    k3=f(x[i]+k2*dt/2, t[i]+dt/2, N[i])
+    x[i+1]=x[i]+f(x[i]+k3*dt/2, t[i]+dt/2, N[i])*dt
   return x
 
 def integrator5(f,xo,t,N): #Order 5 (still requires a more exhaustive testing to be carried out)
@@ -52,11 +52,11 @@ def integrator5(f,xo,t,N): #Order 5 (still requires a more exhaustive testing to
   x[0]=xo
   dt=t[1]-t[0]
   for i in range(t.shape[0]-1):
-    k1=f(x[i],t,N[i])
-    k2=f(x[i]+k1*dt/2, t+dt/2, N[i])
-    k3=f(x[i]+k2*dt/2, t+dt/2, N[i])
-    k4=f(x[i]+k3*dt/2, t+dt/2, N[i])
-    x[i+1]=x[i]+f(x[i]+k4*dt/2, t+dt/2, N[i])*dt
+    k1=f(x[i],t[i],N[i])
+    k2=f(x[i]+k1*dt/2, t[i]+dt/2, N[i])
+    k3=f(x[i]+k2*dt/2, t[i]+dt/2, N[i])
+    k4=f(x[i]+k3*dt/2, t[i]+dt/2, N[i])
+    x[i+1]=x[i]+f(x[i]+k4*dt/2, t[i]+dt/2, N[i])*dt
   return x
 
 t=np.linspace(0,50,5000)
