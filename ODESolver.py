@@ -7,7 +7,7 @@ k=5 #Set to 0 to disable noise for example
 
 def ODE (x,t,noisemap): #example ODE
   N=noisemap
-  return 1j*(1+k*N)*x
+  return np.array([1j*(1+k*N)*x])
 
 def integrator1(f,xo,t,N): #Order 3
   x=np.zeros(shape=(xo.shape[0],t.shape[0]), dtype=complex)
